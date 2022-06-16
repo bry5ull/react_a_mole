@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Mole from './Mole'
 import EmptySlot from './EmptySlot'
 
-function MoleContainer(props) {
+const MoleContainer = (props) => {
     let [displayMole, setDisplayMole] = useState(false)
 
     const handleMole = () => {
@@ -11,10 +11,10 @@ function MoleContainer(props) {
         setDisplayMole(false)
     }
 
-const display = displayMole ? <Mole setDisplayMole={setDisplayMole} handleMole={handleMole} /> : <EmptySlot />
+const display = displayMole ? <Mole toggle={setDisplayMole} handleMole={handleMole} /> : <EmptySlot toggle={setDisplayMole} />
 
     return (
-        <div>
+        <div style={{'display': 'inline-block', 'width': '30vw'}}>
             {display}
         </div>
     )
